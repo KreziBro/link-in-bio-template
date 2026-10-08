@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bio Template - Your Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Orbitron:wght@500;900&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            perspective: 1000px;
+            background: #050505;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .bio-wrapper {
+            transition: transform 0.15s ease;
+            transform-style: preserve-3d;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card, .block {
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover, .block:hover {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-image: url('avatar.png');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            margin-bottom: 16px;
+        }
+
+        .username {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-align: center;
+            background: linear-gradient(90deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tag-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tag-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            text-align: center;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .link-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        /* Custom styled audio player */
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+            border-radius: 20px;
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Invert icons to make them white instead of default black */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-timeline,
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            filter: invert(1) drop-shadow(0 0 2px rgba(0,0,0,0.5));
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video (Replace bg_video.mp4 with your own) -->
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="bg_video.mp4" type="video/mp4">
+    </video>
+
+    <div class="bio-wrapper" id="bioCard">
+        <!-- Main Card -->
+        <div class="card">
+            <!-- Avatar (Replace avatar.png with your own) -->
+            <div class="avatar"></div>
+            
+            <!-- Nickname -->
+            <div class="username">YOUR NAME</div>
+            
+            <!-- Tags -->
+            <div class="tag-buttons">
+                <div class="tag-button">DEVELOPER</div>
+                <div class="tag-button">CREATOR</div>
+                <div class="tag-button">DESIGNER</div>
+            </div>
+            
+            <!-- Description -->
+            <div class="description">
+                Hi, I'm a developer and creator.<br>
+                Welcome to my personal bio page.<br>
+                Feel free to check out my links below!
+            </div>
+            
+            <!-- Links -->
+            <div class="links">
+                <a href="#" class="link-btn">GitHub</a>
+                <a href="#" class="link-btn">YouTube</a>
+                <a href="#" class="link-btn">Telegram</a>
+            </div>
+        </div>
+
+        <!-- Music Block -->
+        <div class="block">
+            <strong style="font-family: 'Orbitron', sans-serif; letter-spacing: 1px;">BACKGROUND MUSIC</strong>
+            <small style="opacity: 0.6; margin-top: 4px; margin-bottom: 12px;">Track Name - Artist</small>
+            <!-- Audio (Replace bg_music.ogg with your own) -->
+            <div class="audio-player">
+                <audio controls loop>
+                    <source src="bg_music.ogg" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Tilt Script -->
+    <script>
+        const wrapper = document.getElementById('bioCard');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 40;
+            const y = (window.innerHeight / 2 - e.pageY) / 40;
+            wrapper.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+    </script>
+</body>
+</html>
